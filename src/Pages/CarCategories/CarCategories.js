@@ -5,6 +5,14 @@ const CarCategories = () => {
   const CategoriesData = [
     {
       id: 1,
+      type: "Sedan",
+      description:
+        "This service company gives the best deal while traveling they introduced me to some great places to go for dinner. Loved it.",
+      img: `https://www.motortrend.com/uploads/sites/10/2015/11/2016-audi-a6-prestige-sedan-angular-front.png`,
+      location: "Malibu",
+    },
+    {
+      id: 2,
       type: "SUV",
       description:
         "Before using their services i was not able to think that all the trouble I have to go through for selling a car. I am so satisfied by having their services. I recommend everyone to use their services.",
@@ -12,20 +20,12 @@ const CarCategories = () => {
       location: "California",
     },
     {
-      id: 2,
+      id: 3,
       type: "Sports",
       description:
         "The services are great and their services helped me a lot to find best car within my budget. I am very thankful to them.",
       img: `https://pluspng.com/img-png/racing-cars-png-hd-pngpix-com-porsche-cayman-gt4-clubsport-racing-car-2122.png`,
       location: "Texas",
-    },
-    {
-      id: 3,
-      type: "Sedan",
-      description:
-        "This service company gives the best deal while traveling they introduced me to some great places to go for dinner. Loved it.",
-      img: `https://www.motortrend.com/uploads/sites/10/2015/11/2016-audi-a6-prestige-sedan-angular-front.png`,
-      location: "Malibu",
     },
   ];
 
