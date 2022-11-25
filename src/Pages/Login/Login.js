@@ -86,7 +86,7 @@ const Login = () => {
             )}
           </div>
           <input
-            className="btn btn-accent w-full"
+            className="btn btn-accent  bg-warning text-black w-full"
             value="Login"
             type="submit"
           />
@@ -95,7 +95,8 @@ const Login = () => {
           </div>
         </form>
         <p>
-          New to Car Deals??<br />
+          New to Car Deals??
+          <br />
           <Link className="text-secondary" to="/signup">
             Create new Account
           </Link>
