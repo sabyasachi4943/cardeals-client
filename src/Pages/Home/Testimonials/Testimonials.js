@@ -30,9 +30,8 @@ const Testimonials = () => {
   ];
 
   return (
-
     <section className="my-16">
-      <div className=" text-center">
+      <div className=" text-center pb-8">
         <div>
           <h4 className="text-xl text-primary font-bold uppercase">
             Testimonial

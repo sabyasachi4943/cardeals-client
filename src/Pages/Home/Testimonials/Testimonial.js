@@ -1,10 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const Testimonial = ({ testimonial }) => {
-  const { name, description: userReview, img,location } = testimonial;
+  const { name, description: userReview, img, location } = testimonial;
   return (
-
-    <div className="card shadow-xl">
+    <div className="card shadow-xl border-2 border-gray-500">
       <div className="card-body">
         <p>{userReview}</p>
         <div className="flex items-center mt-6">
