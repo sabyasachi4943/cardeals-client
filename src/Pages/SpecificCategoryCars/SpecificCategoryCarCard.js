@@ -58,7 +58,7 @@ const SpecificCategoryCarCard = ({ cars, setBuyCar }) => {
               className="btn btn-warning"
               onClick={() => setBuyCar(cars)}
             >
-              buy now
+              book now
             </label>
           </div>
         </div>
