@@ -3,7 +3,7 @@ import React from 'react';
 const Dashboard = () => {
   return (
     <div>
-      dashboard coming soon 
+      <p>You Have to select the options on your left side of the website.</p>
     </div>
   );
 };

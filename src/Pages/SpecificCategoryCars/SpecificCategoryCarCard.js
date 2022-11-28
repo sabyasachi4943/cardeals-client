@@ -6,6 +6,7 @@ const SpecificCategoryCarCard = ({ cars, setBuyCar }) => {
     _id,
     carId,
     img,
+    image,
     name,
     type,
     typecode,
@@ -20,7 +21,7 @@ const SpecificCategoryCarCard = ({ cars, setBuyCar }) => {
     <div>
       <div className="card w-86 bg-base-100 shadow-xl m-8 ">
         <figure>
-          <img src={img} alt="car" />
+          <img src={img || image} alt="car" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">
@@ -36,12 +37,10 @@ const SpecificCategoryCarCard = ({ cars, setBuyCar }) => {
             {location}
           </p>
           <p>
-            <span className="font-bold">Resale price: </span>$
-            {resalePrice}
+            <span className="font-bold">Resale price: </span>${resalePrice}
           </p>
           <p>
-            <span className="font-bold">Original price: </span>$
-            {originalPrice}
+            <span className="font-bold">Original price: </span>${originalPrice}
           </p>
           <p>
             <span className="font-bold">Seller Name: </span>
@@ -54,8 +53,10 @@ const SpecificCategoryCarCard = ({ cars, setBuyCar }) => {
                 <button className="btn btn-warning">buy now</button>
               </Link>
             </div> */}
-            <label htmlFor="order-modal" className="btn btn-warning"
-              onClick={()=> setBuyCar(cars)}
+            <label
+              htmlFor="order-modal"
+              className="btn btn-warning"
+              onClick={() => setBuyCar(cars)}
             >
               buy now
             </label>

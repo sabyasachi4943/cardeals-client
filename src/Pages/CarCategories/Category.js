@@ -12,7 +12,7 @@ const Category = ({ category }) => {
         <h2 className="card-title">{type}</h2>
         <p>{description}</p>
         <div className="card-actions">
-            <Link to={`/category/${id}`} className="text-decoration-none">
+            <Link to={`/category/${type}`} className="text-decoration-none">
               <button className="btn btn-warning">
               See All
               </button>
