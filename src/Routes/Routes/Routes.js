@@ -6,6 +6,7 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import SpecificCategoryCars from "../../Pages/SpecificCategoryCars/SpecificCategoryCars";
+import Orders from "../../Pages/Home/Orders/Orders";
 
 
 
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
       },
+      {
+        path: "/dashboard/orders",
+        element: <Orders></Orders>
+      },
+
     ],
   },
 ]);

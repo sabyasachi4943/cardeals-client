@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SpecificCategoryCarCard = ({ cars }) => {
+const SpecificCategoryCarCard = ({ cars, setBuyCar }) => {
   const {
     _id,
     carId,
@@ -36,11 +36,11 @@ const SpecificCategoryCarCard = ({ cars }) => {
             {location}
           </p>
           <p>
-            <span className="font-bold">Resale price: </span>
+            <span className="font-bold">Resale price: </span>$
             {resalePrice}
           </p>
           <p>
-            <span className="font-bold">Original price: </span>
+            <span className="font-bold">Original price: </span>$
             {originalPrice}
           </p>
           <p>
@@ -49,12 +49,16 @@ const SpecificCategoryCarCard = ({ cars }) => {
           </p>
           <div className="card-actions justify-end">
             <div className="font-bold">Posted at: {postedAt}</div>
-            <div className="card-actions">
+            {/* <div className="card-actions">
               <Link to={`/checkout/${_id}`} className="text-decoration-none">
                 <button className="btn btn-warning">buy now</button>
               </Link>
-            </div>
-            
+            </div> */}
+            <label htmlFor="order-modal" className="btn btn-warning"
+              onClick={()=> setBuyCar(cars)}
+            >
+              buy now
+            </label>
           </div>
         </div>
       </div>

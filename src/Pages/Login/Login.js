@@ -47,7 +47,7 @@ const Login = () => {
         <form onSubmit={handleSubmit(handleLogin)}>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              {" "}
+              
               <span className="label-text">Email</span>
             </label>
             <input
@@ -63,7 +63,7 @@ const Login = () => {
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              {" "}
+              
               <span className="label-text">Password</span>
             </label>
             <input
