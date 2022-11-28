@@ -6,9 +6,9 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 const Orders = () => {
 
   const { user } = useContext(AuthContext);
-  console.log(user);
+  
   const url = `http://localhost:5000/orders?email=${user?.email}`;
-  console.log(url)
+  
    const { data: orders = [] } = useQuery({
      queryKey: ["orders", user?.email],
      queryFn: async () => {

@@ -7,6 +7,7 @@ import DashboardLayout from "../../Layout/DashboardLayout";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import SpecificCategoryCars from "../../Pages/SpecificCategoryCars/SpecificCategoryCars";
 import Orders from "../../Pages/Home/Orders/Orders";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 
 
 
@@ -30,7 +31,8 @@ const router = createBrowserRouter([
       {
         path: "/category/:id",
         element: <SpecificCategoryCars></SpecificCategoryCars>,
-        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/category/${params.id}`),
       },
     ],
   },
@@ -45,9 +47,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/orders",
-        element: <Orders></Orders>
+        element: <Orders></Orders>,
       },
-
+      {
+        path: "/dashboard/allusers",
+        element: <AllUsers></AllUsers>,
+      },
     ],
   },
 ]);
