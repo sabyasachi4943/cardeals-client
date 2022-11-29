@@ -14,6 +14,7 @@ import AdminRoute from "../AdminRoute/AdminRoute";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import AllBuyers from "../../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers";
+import Blogs from "../../Pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
       },
       {
         path: "/login",
