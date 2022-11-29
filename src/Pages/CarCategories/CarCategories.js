@@ -7,7 +7,7 @@ const CarCategories = () => {
       id: 1,
       type: "sedan",
       description:
-        "This service company gives the best deal while traveling they introduced me to some great places to go for dinner. Loved it.",
+        "A sedan or saloon (British English) is a passenger car in a three-box configuration with separate compartments for an engine, passengers, and cargo..",
       img: `https://www.motortrend.com/uploads/sites/10/2015/11/2016-audi-a6-prestige-sedan-angular-front.png`,
       location: "Malibu",
     },
@@ -15,7 +15,7 @@ const CarCategories = () => {
       id: 2,
       type: "suv",
       description:
-        "Before using their services i was not able to think that all the trouble I have to go through for selling a car. I am so satisfied by having their services. I recommend everyone to use their services.",
+        "A sport utility vehicle or SUV is a car classification that combines elements of road-going passenger cars with features from off-road vehicles, such as raised ground clearance and four-wheel drive..",
       img: `https://www.pngpix.com/wp-content/uploads/2016/06/PNGPIX-COM-Black-Mercedes-Benz-G-Class-SUV-Car-PNG-Image.png`,
       location: "California",
     },
@@ -23,7 +23,7 @@ const CarCategories = () => {
       id: 3,
       type: "sports",
       description:
-        "The services are great and their services helped me a lot to find best car within my budget. I am very thankful to them.",
+        "A sports car is a car designed with an emphasis on dynamic performance, such as handling, acceleration, top speed, the thrill of driving and racing capability. Sports cars originated in Europe in the early 1900s and are currently produced by many manufacturers around the world.",
       img: `https://pluspng.com/img-png/racing-cars-png-hd-pngpix-com-porsche-cayman-gt4-clubsport-racing-car-2122.png`,
       location: "Texas",
     },
