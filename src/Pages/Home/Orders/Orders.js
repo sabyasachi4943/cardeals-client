@@ -1,27 +1,26 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthProvider';
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Orders = () => {
-
   const { user } = useContext(AuthContext);
-  
-  const url = `http://localhost:5000/orders?email=${user?.email}`;
-  
-   const { data: orders = [] } = useQuery({
-     queryKey: ["orders", user?.email],
-     queryFn: async () => {
-       const res = await fetch(url, {
-         headers: {
-           authorization: `bearer ${localStorage.getItem("accessToken")}`,
-         },
-       });
-       const data = await res.json();
-       console.log(data);
-       return data;
-     },
-   });
+
+  const url = `https://cardeals-server.vercel.app/orders?email=${user?.email}`;
+
+  const { data: orders = [] } = useQuery({
+    queryKey: ["orders", user?.email],
+    queryFn: async () => {
+      const res = await fetch(url, {
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+      return data;
+    },
+  });
 
   return (
     <div>

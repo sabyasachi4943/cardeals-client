@@ -5,8 +5,6 @@ import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal"
 import Loading from "../../Shared/Loading/Loading";
 
 const AllBuyers = () => {
-
-  
   const {
     data: buyers = [],
     isLoading,
@@ -14,7 +12,7 @@ const AllBuyers = () => {
   } = useQuery({
     queryKey: ["buyers"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/buyers", {
+      const res = await fetch("https://cardeals-server.vercel.app/buyers", {
         headers: {
           authorization: `bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -31,7 +29,7 @@ const AllBuyers = () => {
   };
 
   const handleDelete = (buyer) => {
-    fetch(`http://localhost:5000/buyers/${buyer._id}`, {
+    fetch(`https://cardeals-server.vercel.app/buyers/${buyer._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -40,13 +38,11 @@ const AllBuyers = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
-         
           refetch();
           toast.success(`Buyer ${buyer.name} deleted successfully`);
         }
       });
   };
-
 
   if (isLoading) {
     return <Loading></Loading>;

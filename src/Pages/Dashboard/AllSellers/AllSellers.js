@@ -1,11 +1,10 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
-import toast from 'react-hot-toast';
-import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
-import Loading from '../../Shared/Loading/Loading';
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
+import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal";
+import Loading from "../../Shared/Loading/Loading";
 
 const AllSellers = () => {
-
   const {
     data: sellers = [],
     isLoading,
@@ -13,7 +12,7 @@ const AllSellers = () => {
   } = useQuery({
     queryKey: ["sellers"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/sellers", {
+      const res = await fetch("https://cardeals-server.vercel.app/sellers", {
         headers: {
           authorization: `bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -30,7 +29,7 @@ const AllSellers = () => {
   };
 
   const handleDelete = (seller) => {
-    fetch(`http://localhost:5000/sellers/${seller._id}`, {
+    fetch(`https://cardeals-server.vercel.app/sellers/${seller._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -46,7 +45,7 @@ const AllSellers = () => {
   };
 
   const handleMakeAdmin = (id) => {
-    fetch(`http://localhost:5000/buyers/admin/${id}`, {
+    fetch(`https://cardeals-server.vercel.app/buyers/admin/${id}`, {
       method: "PUT",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -65,7 +64,6 @@ const AllSellers = () => {
     return <Loading></Loading>;
   }
 
-
   return (
     <div>
       <h2 className="text-3xl">All Sellers</h2>
@@ -77,7 +75,7 @@ const AllSellers = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
-              
+
               <th>Delete</th>
             </tr>
           </thead>

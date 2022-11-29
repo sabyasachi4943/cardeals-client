@@ -1,13 +1,13 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
-import Loading from '../../Shared/Loading/Loading';
-import OrderModal from '../../SpecificCategoryCars/OrderModal/OrderModal';
-import AdvertisementCards from './AdvertisementCards';
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
+import Loading from "../../Shared/Loading/Loading";
+import OrderModal from "../../SpecificCategoryCars/OrderModal/OrderModal";
+import AdvertisementCards from "./AdvertisementCards";
 
 const Advertisements = () => {
   // const AdvertisedCars = useLoaderData();
   const [buyCar, setBuyCar] = useState(null);
-  
+
   const {
     data: advertisedCars = [],
     isLoading,
@@ -15,7 +15,7 @@ const Advertisements = () => {
   } = useQuery({
     queryKey: ["advertisedCars"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/ads", {
+      const res = await fetch("https://cardeals-server.vercel.app/ads", {
         headers: {
           authorization: `bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -29,9 +29,6 @@ const Advertisements = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
-
- 
-
 
   return (
     <div className="text-center py-20">

@@ -3,9 +3,8 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const OrderModal = ({ buyCar, setAllCars, setBuyCar }) => {
- 
   console.log(buyCar);
- 
+
   const {
     name,
     _id,
@@ -19,7 +18,6 @@ const OrderModal = ({ buyCar, setAllCars, setBuyCar }) => {
     sellerName,
   } = buyCar;
 
-  
   const { user } = useContext(AuthContext);
 
   const handleOrder = (event) => {
@@ -46,7 +44,7 @@ const OrderModal = ({ buyCar, setAllCars, setBuyCar }) => {
       createdAt: d.toString(),
     };
 
-    fetch("http://localhost:5000/orders", {
+    fetch("https://cardeals-server.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -58,9 +56,9 @@ const OrderModal = ({ buyCar, setAllCars, setBuyCar }) => {
         console.log(data);
         if (data.acknowledged) {
           setBuyCar(null);
-          console.log("pass")
-          
-          toast.success("confirmed order")
+          console.log("pass");
+
+          toast.success("confirmed order");
         } else {
           toast.error(data.message);
         }

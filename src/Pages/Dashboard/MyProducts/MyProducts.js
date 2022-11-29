@@ -9,7 +9,7 @@ const MyProducts = () => {
     queryKey: ["products"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/products?name=${user?.displayName}`,
+        `https://cardeals-server.vercel.app/products?name=${user?.displayName}`,
       );
       const data = await res.json();
       return data;
@@ -21,12 +21,12 @@ const MyProducts = () => {
   const handleAdvertise = (product) => {
     console.log(product);
 
-    fetch(`http://localhost:5000/ads/${product._id}`, {
+    fetch(`https://cardeals-server.vercel.app/ads/${product._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      }
+      },
     })
       .then((res) => res.json())
       .then((result) => {
@@ -80,7 +80,6 @@ const MyProducts = () => {
       </div>
     </div>
   );
-
 };
 
 export default MyProducts;

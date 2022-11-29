@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         path: "/category/:type",
         element: <SpecificCategoryCars></SpecificCategoryCars>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.type}`),
+          fetch(`https://cardeals-server.vercel.app/category/${params.type}`),
       },
     ],
   },
@@ -103,8 +103,8 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <Error></Error>
-  }
+    element: <Error></Error>,
+  },
 ]);
 
 export default router;

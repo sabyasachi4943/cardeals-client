@@ -7,7 +7,6 @@ import Banner from "../Banner/Banner";
 import Testimonials from "../Testimonials/Testimonials";
 
 const Home = () => {
-
   const {
     data: advertisedCars = [],
     isLoading,
@@ -15,24 +14,21 @@ const Home = () => {
   } = useQuery({
     queryKey: ["advertisedCars"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/ads", {
+      const res = await fetch("https://cardeals-server.vercel.app/ads", {
         headers: {
           authorization: `bearer ${localStorage.getItem("accessToken")}`,
         },
       });
       const data = await res.json();
-      console.log(data)
+      console.log(data);
       return data;
     },
   });
 
-
   return (
     <div className="mx-5">
       <Banner></Banner>
-      {advertisedCars.length > 0 &&     
-      <Advertisements></Advertisements>
-       }
+      {advertisedCars.length > 0 && <Advertisements></Advertisements>}
       <CarCategories></CarCategories>
       <Testimonials></Testimonials>
     </div>
