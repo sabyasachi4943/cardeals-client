@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -11,7 +12,7 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, providerLogin } = useContext(AuthContext);
   const [signUpError, setSignUPError] = useState("");
   const [createdUserEmail, setCreatedUserEmail] = useState("");
   const [token] = useToken(createdUserEmail);
@@ -20,6 +21,19 @@ const SignUp = () => {
   if (token) {
     navigate("/");
   }
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    let role = "buyer";
+    setSignUPError("");
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        saveUser(user.displayName, user.email, role);
+      })
+      .catch((error) => setSignUPError(error.message));
+  };
 
   const handleSignUp = (data) => {
     setSignUPError("");
@@ -87,9 +101,10 @@ const SignUp = () => {
               {...register("role", { required: true })}
               className="input input-bordered w-full max-w-xs"
             >
-              
               <option value="seller">Seller</option>
-              <option value="buyer" selected>Buyer</option>
+              <option value="buyer" selected>
+                Buyer
+              </option>
             </select>
             {errors.name && (
               <p className="text-red-500">{errors.role.message}</p>
@@ -148,7 +163,9 @@ const SignUp = () => {
           </Link>
         </p>
         <div className="divider">OR</div>
-        <button className="btn btn-outline w-full">CONTINUE WITH GOOGLE</button>
+        <button className="btn btn-outline w-full" onClick={handleGoogleSignIn}>
+          CONTINUE WITH GOOGLE
+        </button>
       </div>
     </div>
   );
