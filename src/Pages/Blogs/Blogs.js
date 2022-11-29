@@ -36,6 +36,38 @@ const Blogs = () => {
       <h1 className="font-bold">
         3. What is a unit test? Why should we write unit tests?
       </h1>
+      <p className="py-3">
+        Answer: Unit tests are simple scripts that check whether a given
+        unit—class, function, module, etc.—is working as expected. They are
+        meant to be rather simple, to cover the happy path of the code plus a
+        few edge cases. They contribute to the long-term success of a project
+        because of the reasons I discuss below. <br />
+        <span className="font-bold">Speed up development testing</span> <br />
+        When you start building applications, the most natural thing is to test
+        the code with the user interface. You can make this process way faster
+        and more reliable by writing a script that will check the code for you.
+        With tests in place, rerunning all of them takes no mental energy from
+        you; you can do it as often as you feel like. This leads to a shorter
+        feedback loop too, which will help you stay focused and productive.{" "}
+        <br />
+        <span className="font-bold">Discover edge cases</span> <br /> Writing
+        unit tests makes me think about edge cases—all the situations that are
+        rare, unexpected, or wrong. When you write the logic, it's normal to
+        focus on the happy path, or what's normal and expected to happen. When
+        you write tests, you can set up checks for the edge cases and define
+        what should happen in each of them. This makes your code more resilient
+        in cases of unexpected inputs. <br />
+        <span className="font-bold">
+          Ensure that your code is composed of units
+        </span>
+        <br /> When you add unit tests to your code, you see what is easy to
+        test and what is not. As your code grows in size and complexity, tests
+        will force you to break it into manageable pieces. This is great because
+        it will help you take the quality of your code to the next level. Every
+        segment that received excessive responsibilities will require
+        exponentially more complicated unit tests. In those cases, its a good
+        idea to stop and rethink how you organize your logic.
+      </p>
       <h1 className="font-bold">4. React vs. Angular vs. Vue?</h1>
     </div>
   );
