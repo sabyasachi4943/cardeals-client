@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const MyProducts = () => {
@@ -14,6 +15,27 @@ const MyProducts = () => {
       return data;
     },
   });
+
+  refetch();
+
+  const handleAdvertise = (product) => {
+    console.log(product);
+
+    fetch(`http://localhost:5000/ads/${product._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      }
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        toast.success(`${product.name} is advertised successfully`);
+        refetch();
+      });
+  };
+
   return (
     <div>
       <div>
@@ -26,7 +48,7 @@ const MyProducts = () => {
                 <th>Name</th>
                 <th>Resale Price</th>
                 <th>Type</th>
-                {/* <th>Admin</th> */}
+                <th>Advertise</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -37,16 +59,16 @@ const MyProducts = () => {
                   <td>{product.name}</td>
                   <td>{product.resalePrice}</td>
                   <td>{product.type}</td>
-                  {/* <td>
-                    {user?.role !== "admin" && (
+                  <td>
+                    {product?.advertised !== "advertised" && (
                       <button
-                        onClick={() => handleMakeAdmin(user._id)}
+                        onClick={() => handleAdvertise(product)}
                         className="btn btn-xs btn-primary"
                       >
-                        Make Admin
+                        Advertise
                       </button>
                     )}
-                  </td> */}
+                  </td>
                   <td>
                     <button className="btn btn-xs btn-danger">Delete</button>
                   </td>

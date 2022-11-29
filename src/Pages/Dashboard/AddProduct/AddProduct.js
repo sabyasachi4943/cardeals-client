@@ -156,7 +156,7 @@ const AddProduct = () => {
               <span className="label-text">Condition or Years of use</span>
             </label>
             <input
-              type="number"
+              type="text"
               {...register("yearsOfUse", {
                 required: "years Of Use is Required",
               })}
